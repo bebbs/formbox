@@ -22,15 +22,9 @@ describe 'Logged out user' do
   end
   
   context 'Logging in' do
-    before do
-      user = FactoryGirl.create(:user)
-    end
     
     it 'Can log in' do
-      visit '/users/sign_in'
-      fill_in(:user_email, with: 'test@example.com')
-      fill_in(:user_password, with: 'abc1234@')
-      click_button('Log in')
+      login_user
       
       expect(page).to have_content('Signed in successfully')
     end
@@ -39,8 +33,18 @@ describe 'Logged out user' do
 end
 
 describe 'Logged in user' do
-  # it 'Can log out' do
-  #   visit '/'
-  #   click_link 
-  # end
+  it 'Can log out' do
+    login_user
+    click_link 'Log out'
+    
+    expect(page).to have_content('Signed out successfully')
+  end
+end
+
+def login_user
+  user = FactoryGirl.create(:user)
+  visit '/users/sign_in'
+  fill_in(:user_email, with: 'test@example.com')
+  fill_in(:user_password, with: 'abc1234@')
+  click_button('Log in')
 end
