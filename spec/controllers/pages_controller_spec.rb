@@ -7,4 +7,20 @@ RSpec.describe PagesController, type: :controller do
       expect(response.status).to eq 200
     end
   end
+  
+  describe 'GET /dashboard' do
+    it '302 when logged out' do
+      get :dashboard, {}
+      
+      expect(response.status).to eq 302
+    end
+    
+    it 'Returns the dashboard when signed in' do
+      user = FactoryGirl.create(:user)
+      sign_in user
+      get :dashboard, {}
+      
+      expect(response.status).to eq 200
+    end
+  end
 end

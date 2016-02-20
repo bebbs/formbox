@@ -49,7 +49,8 @@ end
 def login_user
   user = FactoryGirl.create(:user)
   visit '/users/sign_in'
-  fill_in(:user_email, with: 'test@example.com')
-  fill_in(:user_password, with: 'abc1234@')
+  fill_in(:user_email, with: user.email)
+  fill_in(:user_password, with: user.password)
   click_button('Log in')
+  user
 end
