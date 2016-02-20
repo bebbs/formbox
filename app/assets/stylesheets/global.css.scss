@@ -1,0 +1,14 @@
+$purple: #965176;
+
+body {
+  background-color: #eee;
+}
+
+.logo {
+  color: #8A8A8A;
+}
+
+.logo span.bolder {
+  font-weight: 700;
+  color: $purple;
+}
