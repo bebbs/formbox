@@ -1,0 +1,11 @@
+<nav class="dashboard-nav">
+  <span class="logo logo-sml">Form<span class="bolder">Box</span></span>
+  <ul>
+    <li><%= fa_icon "dashboard" %></li>
+    <li><%= fa_icon "plus" %></li>
+    <li><%= link_to (fa_icon "gears"), edit_user_registration_path %></li>
+  </ul>
+  <section class="logout">
+    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  </section>
+</nav>

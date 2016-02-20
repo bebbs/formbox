@@ -8,8 +8,14 @@
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if current_user %>
+    <%= render "shared/dashboard_nav.html.erb" %>
+  <% end %>
+  
+  <section class="container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </section>
   <%= yield %>
   <%= render 'shared/footer' %>
 </body>

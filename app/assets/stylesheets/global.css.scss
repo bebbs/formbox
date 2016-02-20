@@ -12,3 +12,55 @@ body {
   font-weight: 700;
   color: $purple;
 }
+
+.logo-sml {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.logo-sml span.bolder {
+  color: #fff;
+}
+
+nav.dashboard-nav {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  padding-top: 3rem;
+  width: 12rem;
+  background-color: $purple;
+  text-align: center;
+  color: #fff;
+  
+  ul {
+    list-style-type: none;
+    margin-top: 2rem;
+    font-size: 4rem;
+    
+    li {
+      opacity: 0.6;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  section.logout {
+    position: fixed;
+    bottom: 3rem;
+    text-align: center;
+    width: 12rem;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+}
+
+article {
+  margin-left: 12rem;
+  padding-left: 2rem;
+}
