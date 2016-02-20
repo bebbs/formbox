@@ -22,11 +22,16 @@ describe 'Logged out user' do
   end
   
   context 'Logging in' do
-    
     it 'Can log in' do
       login_user
       
       expect(page).to have_content('Signed in successfully')
+    end
+    
+    it 'Redirected to the dashboard' do
+      login_user
+      
+      expect(current_path).to eq '/dashboard'
     end
   end
   
