@@ -15,4 +15,28 @@ describe Form do
     expect(Form.create(name: too_short_name)).to be_invalid
     expect(Form.create(name: valid_name)).to be_valid
   end
+  
+  context 'Status' do
+    before(:each) do
+      @form = Form.create(name: 'Test Form')
+    end
+    
+    it "Published by default" do
+      expect(@form).to be_published
+    end
+    
+    it "Can be archived" do
+      @form.archived!
+      
+      expect(@form).to be_archived
+    end
+    
+    it 'Can be unarchived' do
+      @form.archived!
+      @form.published!
+      
+      expect(@form).not_to be_archived
+      expect(@form).to be_published
+    end
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220195250) do
+ActiveRecord::Schema.define(version: 20160221192315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 20160220195250) do
     t.integer  "user_id"
     t.string   "redirect_url"
     t.string   "webhook_url"
-    t.integer  "status"
+    t.integer  "status",       default: 100
     t.string   "uuid"
     t.string   "name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "forms", ["user_id"], name: "index_forms_on_user_id", using: :btree
