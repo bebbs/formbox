@@ -24,4 +24,10 @@ describe 'Forms' do
       expect(page).not_to have_content('Other users form')
     end
   end
+  
+  context 'Creating a form' do
+    it 'Can navigate to the' do
+      # 
+    end
+  end
 end

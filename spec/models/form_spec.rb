@@ -7,4 +7,12 @@ describe Form do
     expect(form.uuid).to match /^[a-zA-Z0-9]*$/
     expect(form.uuid.length).to eq 10
   end
+  
+  it "Validates name" do
+    no_name, too_short_name, valid_name = '', 'ab', 'abcdefg'
+    
+    expect(Form.create(name: no_name)).to be_invalid
+    expect(Form.create(name: too_short_name)).to be_invalid
+    expect(Form.create(name: valid_name)).to be_valid
+  end
 end
