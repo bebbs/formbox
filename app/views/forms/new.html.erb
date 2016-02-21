@@ -1,0 +1,16 @@
+<article class="new-form">
+  <h1>New Form</h1>
+  <%= form_for @form do |f| %>
+    <label>Form Name</label>
+    <span class="explanation">Choose a name for your form</span>
+    <%= f.text_field :name %>
+    
+    <label>Redirect URL</label>
+    <span class="explanation">Where should we redirect the user once they've submitted your form?</span>
+    <%= f.text_field :redirect_url, placeholder: "http://www.yourwebsite.com" %>
+    
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</article>

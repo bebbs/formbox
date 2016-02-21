@@ -9,7 +9,7 @@ RSpec.describe PagesController, type: :controller do
   end
   
   describe 'GET /dashboard' do
-    it '302 when logged out' do
+    it '302 when not signed in' do
       get :dashboard, {}
       
       expect(response.status).to eq 302
