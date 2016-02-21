@@ -46,6 +46,16 @@ describe 'Forms' do
     end
   end
   
+  context 'Editing a form' do
+    it 'Update screen accessed through uuid' do
+      user = login_user
+      form = Form.create(name: "Contact form", user: user)
+      visit "/f/#{form.uuid}"
+      
+      expect(page).to have_content('Update Contact form')
+    end
+  end
+  
   context 'Archiving a form' do
     it 'Using the archive button' do
       user = login_user

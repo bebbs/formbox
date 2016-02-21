@@ -14,6 +14,10 @@ class FormsController < ApplicationController
     end
   end
   
+  def edit
+    @form = Form.find_by(uuid: params[:uuid])
+  end
+  
   def archive
     form = Form.find(params[:id])
     form.archived!
