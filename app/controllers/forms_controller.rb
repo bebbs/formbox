@@ -14,6 +14,13 @@ class FormsController < ApplicationController
     end
   end
   
+  def archive
+    form = Form.find(params[:id])
+    form.archived!
+    flash[:notice] = "#{form.name} is now archived"
+    redirect_to '/dashboard'
+  end
+  
   private
   def form_params
     params.require(:form).permit(:name, :redirect_url, :webhook_url)

@@ -3,7 +3,10 @@
   <% if @forms.any? %>
     <ul class="forms-list">
     <% @forms.each do |f| %>
-      <li class="form-card"><%= f.name %></li>
+      <li class="form-card">
+        <span><%= f.name %></span>
+        <%= link_to "Archive", form_archive_path(f), method: :post %>
+      </li>
     <% end %>
     </ul>
   <% end %>

@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   end
   
   def dashboard
-    @forms = current_user.forms
+    @forms = current_user.forms.published
   end
 end

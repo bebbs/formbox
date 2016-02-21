@@ -26,8 +26,37 @@ describe 'Forms' do
   end
   
   context 'Creating a form' do
-    it 'Can navigate to the' do
-      # 
+    before(:each) do
+      user = login_user
+      visit '/dashboard'
+      page.first('.new-form-link').click
+    end
+    
+    it 'Can navigate to the new form page' do
+      expect(page).to have_content('New Form')
+    end
+    
+    it 'Can submit a valid new form' do
+      fill_in(:form_name, with: 'Contact form')
+      fill_in(:form_redirect_url, with: 'https://www.google.com')
+      click_button('Create Form')
+      
+      expect(page).to have_content('Form was successfully created')
+      expect(page).to have_content('Contact form')
+    end
+  end
+  
+  context 'Archiving a form' do
+    it 'Using the archive button' do
+      user = login_user
+      Form.create(name: "Contact form", user: user)
+      visit '/dashboard'
+      within("li.form-card") do
+        click_link "Archive"
+      end
+      
+      expect(current_path).to eq "/dashboard"
+      expect(page).to have_content('Contact form is now archived')
     end
   end
 end
