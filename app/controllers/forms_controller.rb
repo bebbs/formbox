@@ -26,6 +26,10 @@ class FormsController < ApplicationController
     redirect_to '/dashboard'
   end
   
+  def responses
+    
+  end
+  
   private
   def form_params
     params.require(:form).permit(:name, :redirect_url, :webhook_url)

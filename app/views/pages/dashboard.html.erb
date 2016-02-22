@@ -10,7 +10,7 @@
           <%= link_to "Archive", archive_form_path(f), method: :post, class: "archive" %>
         </section>
         <span><%= f.name %></span>
-        <span class="form-responses"><%= response_count f %></span>
+        <span class="form-responses"><%= link_to (response_count f), form_responses_path(f.uuid) %></span>
       </li>
     <% end %>
     </ul>

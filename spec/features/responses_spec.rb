@@ -26,5 +26,13 @@ describe 'Responses' do
       
       expect(page).to have_content('2 Responses')
     end
+    
+    it 'Can navigate to the responses list' do
+      @form.responses.create
+      visit '/dashboard'
+      click_link('1 Response')
+      
+      expect(current_path).to eq "/f/#{@form.uuid}/responses"
+    end
   end
 end
