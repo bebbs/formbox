@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   
   def dashboard
     @forms = current_user.forms.published
+    @responses = Response.all
   end
 end

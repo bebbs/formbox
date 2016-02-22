@@ -1,5 +1,6 @@
 class Form < ActiveRecord::Base
   belongs_to :user
+  has_many :responses
   before_create :generate_uuid
   validates :name, presence: true, length: {minimum: 5}
   

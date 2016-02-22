@@ -1,14 +1,16 @@
 <article class="dashboard">
   <h1>Dashboard</h1>
   <% if @forms.any? %>
+    <p>Listed below are your current forms. Select one to read responses, or <%= link_to "create a new form", new_form_path %></p>
     <ul class="forms-list">
     <% @forms.each do |f| %>
       <li class="form-card">
-        <span><%= f.name %></span>
         <section class="actions">
           <%= link_to "Edit", edit_form_path(f.uuid) %>
           <%= link_to "Archive", archive_form_path(f), method: :post, class: "archive" %>
         </section>
+        <span><%= f.name %></span>
+        <span class="form-responses"><%= response_count f %></span>
       </li>
     <% end %>
     </ul>
