@@ -5,7 +5,10 @@
     <% @forms.each do |f| %>
       <li class="form-card">
         <span><%= f.name %></span>
-        <%= link_to "Archive", form_archive_path(f), method: :post %>
+        <section class="actions">
+          <%= link_to "Edit", edit_form_path(f.uuid) %>
+          <%= link_to "Archive", archive_form_path(f), method: :post, class: "archive" %>
+        </section>
       </li>
     <% end %>
     </ul>

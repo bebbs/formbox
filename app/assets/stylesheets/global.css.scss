@@ -60,6 +60,21 @@ nav.dashboard-nav {
   }
 }
 
+section.actions {
+  float: right;
+  
+  a {
+    text-decoration: none;
+    color: #8A8A8A;
+    text-transform: uppercase;
+    margin-left: 1rem;
+  }
+  
+  a.archive {
+    color: #ccc;
+  }
+}
+
 article {
   margin-left: 12rem;
   padding-left: 2rem;

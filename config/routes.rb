@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/dashboard', to: 'pages#dashboard', as: :dashboard
   
-  resources :forms, only: [:new, :create]
-  post '/forms/:id/archive', to: 'forms#archive', as: :form_archive
+  resources :forms, only: [:new, :create, :update]
+  post '/forms/:id/archive', to: 'forms#archive', as: :archive_form
   
-  get '/f/:uuid', to: 'forms#edit', as: :edit_form_path
+  get '/f/:uuid', to: 'forms#edit', as: :edit_form
 end

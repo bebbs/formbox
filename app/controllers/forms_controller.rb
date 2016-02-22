@@ -16,6 +16,7 @@ class FormsController < ApplicationController
   
   def edit
     @form = Form.find_by(uuid: params[:uuid])
+    redirect_to dashboard_path if !@form
   end
   
   def archive
