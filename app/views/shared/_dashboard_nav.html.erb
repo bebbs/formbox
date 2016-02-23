@@ -1,7 +1,7 @@
 <nav class="dashboard-nav">
   <span class="logo logo-sml">Form<span class="bolder">Box</span></span>
   <ul>
-    <li><%= fa_icon "dashboard" %></li>
+    <li><%= link_to (fa_icon "dashboard"), dashboard_path %></li>
     <li><%= link_to (fa_icon "plus"), new_form_path, class: 'new-form-link' %></li>
     <li><%= link_to (fa_icon "gears"), edit_user_registration_path %></li>
   </ul>

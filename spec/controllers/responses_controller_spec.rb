@@ -11,11 +11,26 @@ RSpec.describe ResponsesController, type: :controller do
     end
     
     context 'Form exists' do
+      before(:each) do
+        @form = FactoryGirl.create(:form)
+      end
+      
       it '302 redirects (ok)' do
-        form = FactoryGirl.create(:form)
-        post :create, uuid: form.uuid
+        post :create, uuid: @form.uuid
         
         expect(response.status).to eq 302
+      end
+      
+      it 'Redirects to the redirect_url of the form' do
+        post :create, uuid: @form.uuid
+        
+        expect(response).to redirect_to "https://google.com"
+      end
+      
+      it 'Response gets created' do        
+        post :create, {uuid: @form.uuid, location: 'Leeds', name: 'John Doe'}
+        
+        expect(@form.responses.count).to eq 1
       end
     end
     
